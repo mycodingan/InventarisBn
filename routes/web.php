@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\dasController;
+use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\BrusakController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +38,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/', function () {
-        return view('dashboard'); // Ganti dengan view dashboard Anda
-    })->name('dashboard');
+    Route::get('/', [dasController::class, 'das'])->name('das.index');
 
     Route::get('/barang', [BarangController::class, 'index'])->name('barang.index');
     Route::get('/barang/create', [BarangController::class, 'create'])->name('barang.create');
@@ -44,4 +46,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/barang/{id}/edit', [BarangController::class, 'edit'])->name('barang.edit');
     Route::put('/barang/{id}', [BarangController::class, 'update'])->name('barang.update');
     Route::delete('/barang/{id}', [BarangController::class, 'destroy'])->name('barang.destroy');
+
+    Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+    Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
+    Route::put('/peminjaman/{id}', [PeminjamanController::class, 'update'])->name('peminjaman.update');
+    Route::delete('/peminjaman/{id}', [PeminjamanController::class, 'destroy'])->name('peminjaman.destroy');
+
+
+    Route::get('/brusak', [BrusakController::class, 'index'])->name('brusak.index');
+    Route::post('/brusak/save/{id?}', [BrusakController::class, 'save'])->name('brusak.save');
+    Route::delete('/brusak/{id}', [BrusakController::class, 'destroy'])->name('brusak.destroy');
 });
+

@@ -17,19 +17,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Beranda</a>
+                        <a class="nav-link" href="/">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Daftar Inventaris</a>
+                        <a class="nav-link" href="{{route('barang.index')}}">Daftar Inventaris</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#">Tambah Barang</a>
+                    </li> --}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('peminjaman.index')}}">Peminjaman</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Peminjaman</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Laporan Barang Rusak</a>
+                        <a class="nav-link" href="{{route('brusak.index')}}">Laporan Barang Rusak</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pengaturan</a>
